@@ -14,3 +14,12 @@ def search_candidates(query: str, limit: int = 10):
     results = search_vector(query, limit=limit)
 
     return json.dumps(results)
+
+@tool
+def submit_candidates(candidates: list[dict]):
+    """Submit the curated, evaluated, and ranked candidate list to the UI.
+    
+    Args:
+        candidates: A list of candidate dictionaries. You must use this tool to display the final curated results to the user!
+    """
+    return json.dumps(candidates)

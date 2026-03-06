@@ -11,9 +11,10 @@ dependencies = [
     "langchain",
     "langgraph",
     "langchain-google-genai",
-    "streamlit",
     "python-dotenv",
     "python-docx>=1.2.0",
+    "websockets",
+    "websocket-client",
 ]
 
 [tool.uv]

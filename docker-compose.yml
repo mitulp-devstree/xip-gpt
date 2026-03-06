@@ -21,17 +21,5 @@ services:
     depends_on:
       - qdrant
 
-  streamlit:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile.ui
-    container_name: resume_ui
-    ports:
-      - "8501:8501"
-    env_file:
-      - .env
-    depends_on:
-      - api
-
 volumes:
   qdrant_storage:
