@@ -1,0 +1,32 @@
+[project]
+name = "resume-ai-search"
+version = "0.1.0"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pymongo",
+    "qdrant-client",
+    "langchain",
+    "langgraph",
+    "langchain-google-genai",
+    "streamlit",
+    "python-dotenv",
+    "python-docx>=1.2.0",
+]
+
+[tool.uv]
+# Force CPU-only torch — avoids pulling in 900 MB CUDA wheels
+index-url = "https://download.pytorch.org/whl/cpu"
+
+# Explicitly exclude GPU-only packages that get dragged in transitively
+override-dependencies = [
+    "torch ; sys_platform == 'never'",   # completely exclude torch (not needed — using Gemini API)
+    "triton ; sys_platform == 'never'",  # CUDA kernel compiler — only needed with GPU torch
+]
+
+# Extra package index for everything else
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"

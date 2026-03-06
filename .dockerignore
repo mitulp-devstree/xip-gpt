@@ -1,0 +1,19 @@
+# Python virtualenv — never send this to Docker, it's large and belongs to the host
+.venv/
+
+# IDE / editor files
+.idea/
+*.pyc
+__pycache__/
+*.egg-info/
+
+# Git
+.git/
+.gitignore
+
+# Docker files themselves (no need to include in image)
+docker/
+Dockerfile
+
+# OS noise
+.DS_Store
